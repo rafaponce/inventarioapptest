@@ -1,12 +1,3 @@
-/*
-* Modelo de base de datos del sistema Inventio Max version 8
-* @author evilnapsis
-* @url http://evilnapsis.com/product/inventio-max
-*/
-create database inventiomax;
-use inventiomax;
-
-
 
 create table user(
 	id int not null auto_increment primary key,
@@ -163,10 +154,10 @@ create table box(
 	created_at datetime ,
 	foreign key (user_id) references user(id)
 );
-/*
-create table xx (	id int not null auto_increment primary key ); /* ids autoincrementales para ventas 
-create table yy (	id int not null auto_increment primary key ); /* ids autoincrementales para compras
-*/
+
+create table xx (	id int not null auto_increment primary key ); /* ids autoincrementales para ventas */
+create table yy (	id int not null auto_increment primary key ); /* ids autoincrementales para compras */
+
 /* Tabla sell: Ventas, compras, cotizaciones */
 create table sell(
 	id int not null auto_increment primary key,
@@ -246,6 +237,10 @@ create table configuration(
 	kind int ,
 	val varchar(255) not null
 );
+
+SELECT * FROM configuration;
+
+
 insert into configuration(short,name,kind,val) value("company_name","Nombre de la empresa",2,"Powered by Inventio Max 9.0");
 insert into configuration(short,name,kind,val) value("title","Titulo del Sistema",2,"Inventio Max 9.0");
 insert into configuration(short,name,kind,val) value("ticket_title","Titulo en el Ticket",2,"INVENTIO MAX v9.0");
@@ -302,7 +297,4 @@ create table message(
 	is_read boolean not null default 0,
 	created_at datetime
 );
-
-
-
 
